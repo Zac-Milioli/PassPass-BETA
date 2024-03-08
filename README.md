@@ -15,5 +15,6 @@
 <h3>Simplesmente copie e cole os resultados gerados pela aplicação 😄</h3>
 
 <h2>Nada de cobranças 💸💸</h2>
-<h3>PassPass é totalmente gratuito. Temos o objetivo de melhorar a segurança dos usuários da internet.</h3>
-<h3>Caso tenha interesse de contribuir com o projeto ou apoiar o criador, entre em contato pelo [Linkedin](https://www.linkedin.com/in/zac-milioli) ou envie doações para meu pix com uma mensagem motivacional 😎 (Banco Inter, chave: zacmilioli@gmail.com)</h3>
+<h3>PassPass é totalmente gratuito. Temos como único objetivo melhorar a segurança dos usuários da internet.</h3>
+
+>Caso tenha interesse de contribuir com o projeto ou apoiar o criador, entre em contato pelo [Linkedin](https://www.linkedin.com/in/zac-milioli/) ou envie doações para meu pix com uma mensagem motivacional 😎 (Banco Inter, chave: zacmilioli@gmail.com)

@@ -23,11 +23,19 @@ class PassPass:
         title = ctk.CTkLabel(self.wn, text='PassPass', font=title_font, text_color='black', fg_color='transparent')
         title.pack(padx=5, pady=3)
 
-    def mainscreen(self):
-        pass
+        # criar frame completo do PassPass e incluir o botão de ajuda
+        
 
-    def helpscreen(self):
+        # criar frame completo de ajuda e incluir o botão de voltar
+
+
+    def switch_mainscreen(self):
         pass
+        # self.mainscreen.pack_forget()
+
+    def switch_helpscreen(self):
+        pass
+        # self.helpscreen.pack_forget()
 
 if __name__ == "__main__":
     root = ctk.CTk()

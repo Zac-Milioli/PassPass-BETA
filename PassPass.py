@@ -41,8 +41,8 @@ class PassPass:
         self.generator = ctk.CTkButton(self.mainscreen, text='', fg_color=passpass_text_color, corner_radius=50, width=80, height=80, border_color=passpass_bordercolor)
         self.generator.pack(pady=20)
 
-        self.button_icon = ctk.CTkLabel(self.mainscreen, text='🔒', font=title_font, text_color=entrys_color, fg_color=passpass_text_color, bg_color=passpass_text_color)
-        self.button_icon.place(x=100, y=190)
+        self.button_icon = ctk.CTkLabel(self.generator, text='🔒', font=passpass_icon_font, text_color=entrys_color, fg_color=passpass_text_color, bg_color=passpass_text_color)
+        self.button_icon.place(relx=0.5, rely=0.4, anchor='center')
 
         self.output = ctk.CTkEntry(self.mainscreen, placeholder_text='', font=elements_font, fg_color=entrys_color, bg_color=passpass_color_theme, width=200, border_color=passpass_bordercolor, state='disabled')
         self.output.pack(pady=2)

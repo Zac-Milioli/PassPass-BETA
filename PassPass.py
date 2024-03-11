@@ -106,6 +106,10 @@ class PassPass:
             'terceiro': self.entry3.get(),
             'salt': '=R7QuW9ju:xT>=u3LV0Z!C\?wWB:pjghzqmec{[!{yGAG{SgLqb|rV:zjt4kJFk/a6fRyv?6i9uD7FB{N@on,?]6!c5Cm8Sfv\93caM51}Pg9`0g]$oW}frs6[csGp=6&3v?TXzi8Il}J.(1^Oh-oGEz+n56|&oRasS4=tnD"<x!AZ!y!.Gl{YmS=}=v8*6`6D`nK/5O@&,<&9'
         }
+        self.output.configure(state='normal')
+        self.output.delete(0, 'end')
+        self.output.insert(0, f'{sha512(gen["primeiro"].encode()).hexdigest()}{sha512(gen["segundo"].encode()).hexdigest()}{sha512(gen["terceiro"].encode()).hexdigest()}{sha512(gen["salt"].encode()).hexdigest()}')
+        self.output.configure(state='disabled')
 
 if __name__ == "__main__":
     root = ctk.CTk()

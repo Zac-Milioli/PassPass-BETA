@@ -34,11 +34,11 @@ class PassPass:
         self.mainscreen = ctk.CTkFrame(self.root, fg_color=passpass_color_theme, bg_color=passpass_color_theme)
         self.mainscreen.pack(fill='both', expand=True)
 
-        self.entry1 = ctk.CTkEntry(self.mainscreen, placeholder_text='Entrada 1', placeholder_text_color=primary, font=elements_font, fg_color=secondary, bg_color=passpass_color_theme, width=200, border_color=primary)
+        self.entry1 = ctk.CTkEntry(self.mainscreen, placeholder_text='Entrada 1', placeholder_text_color=primary, font=elements_font, fg_color=secondary, bg_color=passpass_color_theme, width=200, border_color=primary, text_color=primary)
         self.entry1.pack(pady=10)        
-        self.entry2 = ctk.CTkEntry(self.mainscreen, placeholder_text='Entrada 2', placeholder_text_color=primary, font=elements_font, fg_color=secondary, bg_color=passpass_color_theme, width=200, border_color=primary)
+        self.entry2 = ctk.CTkEntry(self.mainscreen, placeholder_text='Entrada 2', placeholder_text_color=primary, font=elements_font, fg_color=secondary, bg_color=passpass_color_theme, width=200, border_color=primary, text_color=primary)
         self.entry2.pack(pady=10)        
-        self.entry3 = ctk.CTkEntry(self.mainscreen, placeholder_text='Entrada 3', placeholder_text_color=primary, font=elements_font, fg_color=secondary, bg_color=passpass_color_theme, width=200, border_color=primary)
+        self.entry3 = ctk.CTkEntry(self.mainscreen, placeholder_text='Entrada 3', placeholder_text_color=primary, font=elements_font, fg_color=secondary, bg_color=passpass_color_theme, width=200, border_color=primary, text_color=primary)
         self.entry3.pack(pady=10)        
 
         self.generator = ctk.CTkButton(self.mainscreen, text='🔒', font=passpass_icon_font, text_color=secondary, fg_color=primary, corner_radius=50, width=60, height=80, border_color=primary, command=self.generate_password)

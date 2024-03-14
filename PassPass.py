@@ -1,6 +1,4 @@
 import customtkinter as ctk
-import tkinter as tk
-from cryptography.fernet import Fernet
 from hashlib import sha512
 
 my_font = 'Inter'
@@ -95,21 +93,89 @@ class PassPass:
         self.root.clipboard_append(self.output.get())
         self.root.update()
         self.output.configure(state='normal')
-        self.output.delete(0, 'end')
-        self.output.insert(0, 'Salva no clipboard!')
+        if self.output.get() != '':
+            self.output.delete(0, 'end')
+            self.output.insert(0, 'Salva no clipboard!')
+        else:
+            self.output.insert(0, 'Nada para copiar')
         self.output.configure(state='disabled')
 
     def generate_password(self):
         gen = {
-            'primeiro': self.entry1.get(),
-            'segundo': self.entry2.get(),
-            'terceiro': self.entry3.get(),
-            'salt': '=R7QuW9ju:xT>=u3LV0Z!C\?wWB:pjghzqmec{[!{yGAG{SgLqb|rV:zjt4kJFk/a6fRyv?6i9uD7FB{N@on,?]6!c5Cm8Sfv\93caM51}Pg9`0g]$oW}frs6[csGp=6&3v?TXzi8Il}J.(1^Oh-oGEz+n56|&oRasS4=tnD"<x!AZ!y!.Gl{YmS=}=v8*6`6D`nK/5O@&,<&9'
+            'primeiro': self.entry1.get().encode('latin-1'),
+            'segundo': self.entry2.get().encode('latin-1'),
+            'terceiro': self.entry3.get().encode('latin-1'),
+            'salt': b'=R7Q9ju:xT>=!C\?wWB:pjgc{[!{yGAG{SgLqb|rV:zjt4kJFk/a6fRyv?6B{N@on,?]6!cfv\93caM51}Pg9`0g]$oW}frs6[csGp=6&3v?TXzi8Il}J.(1^Oh-oEz+n56|&oR4=tnD"<x!AZ!y!.Gl{YmS=}=v8*6`6D`nK/5O@&,<&9',
+            'special': '!@#$%¨&*(),.:;/?]}[{+_-=*<>',
+            'letters': 'ABCDEFGHIJKLMMNOPRSTUVWXYZ'
         }
+
+        gen['combination'] = f'{gen["primeiro"]}{gen["segundo"]}{gen["terceiro"]}'.encode('latin-1')
+        gen['combination_salted'] = f'{gen["salt"]}{gen["combination"]}{gen["salt"]}'.encode('latin-1')
+        gen['first_step'] = sha512(sha512(gen['combination_salted']).hexdigest().encode('latin-1')).hexdigest().encode('latin-1')
+        gen['second_step'] = f"{sha512(gen['primeiro']).hexdigest()}{sha512(gen['segundo']).hexdigest()}{sha512(gen['terceiro']).hexdigest()}{sha512(gen['combination_salted']).hexdigest()}".encode('latin-1')
+        gen['third_step'] = f"{sha512(gen['combination_salted']).hexdigest()}".encode('latin-1')
+        gen['forth_step'] = f"{sha512(gen['second_step']).hexdigest()}{sha512(gen['third_step']).hexdigest()}".encode('latin-1')
+        gen['fifth_step'] = f"{sha512(gen['forth_step']).hexdigest()}".encode('latin-1')
+        gen['sixth_step'] = f"{sha512(gen['fifth_step']).hexdigest()}{sha512(gen['fifth_step']).hexdigest()}".encode('latin-1')
+        gen['seventh_step'] = sha512(gen['sixth_step']).hexdigest()
+        gen['eighth_step'] = gen['seventh_step'][::18]
+        specpos1 = len(gen["primeiro"])
+        specpos2 = len(gen["segundo"])
+        specpos3 = len(gen["terceiro"])
+        letpos1 = len(gen["primeiro"])
+        letpos2 = len(gen["segundo"])
+        letpos3 = len(gen["terceiro"])
+        if specpos1 > 27:
+            while specpos1 > 27:
+                specpos1 -= 27
+        if specpos2 > 27:
+            while specpos2 > 27:
+                po2 -= 27
+        if specpos3 > 27:
+            while specpos3 > 27:
+                specpos3 -= 27
+        if letpos1 > 26:
+            while letpos1 > 26:
+                letpos1 -= 26
+        if letpos2 > 26:
+            while letpos2 > 26:
+                letpos2 -= 26
+        if letpos3 > 26:
+            while letpos3 > 26:
+                letpos3 -= 26
+        special1 = gen['special'][specpos1]
+        special2 = gen['special'][specpos2]
+        special3 = gen['special'][specpos3]
+        letter1 = gen['letters'][letpos1]
+        letter2 = gen['letters'][letpos2]
+        letter3 = gen['letters'][letpos3]
+        if specpos1 >= 9:
+            while specpos1 >= 9:
+                specpos1 -= 9
+        if specpos2 >= 9:
+            while specpos2 >= 9:
+                po2 -= 9
+        if specpos3 >= 9:
+            while specpos3 >= 9:
+                specpos3 -= 9
+        if letpos1 >= 12:
+            while letpos1 >= 12:
+                letpos1 -= 12
+        if letpos2 >= 12:
+            while letpos2 >= 12:
+                letpos2 -= 12
+        if letpos3 >= 12:
+            while letpos3 >= 12:
+                letpos3 -= 12
+        gen['last_step'] = f'{gen["eighth_step"][0:specpos1]}{special1}{gen["eighth_step"][specpos1:specpos2]}{special2}{gen["eighth_step"][specpos2:specpos3]}{special3}{gen["eighth_step"][specpos3:]}'
+        gen['last_step'] = f'{gen["last_step"][0:letpos1]}{letter1}{gen["last_step"][letpos1:letpos2]}{letter2}{gen["last_step"][letpos2:letpos3]}{letter3}{gen["last_step"][letpos3:]}'
+        
         self.output.configure(state='normal')
         self.output.delete(0, 'end')
-        self.output.insert(0, f'{sha512(gen["primeiro"].encode()).hexdigest()}{sha512(gen["segundo"].encode()).hexdigest()}{sha512(gen["terceiro"].encode()).hexdigest()}{sha512(gen["salt"].encode()).hexdigest()}')
+        self.output.insert(0, gen['last_step'])
         self.output.configure(state='disabled')
+        gen = None
 
 if __name__ == "__main__":
     root = ctk.CTk()

@@ -51,9 +51,6 @@ class PassPass:
 
         self.help_button = ctk.CTkButton(self.top, text='❔', width=0, font=elements_font, text_color=self.primary, fg_color=self.passpass_color_theme, border_color=self.passpass_color_theme, command=self.switch_helpscreen)
         self.help_button.place(relx=0.85, y=0)
-        
-        # self.config_button = ctk.CTkButton(self.top, text='⚙️', width=0, font=elements_font, text_color=self.primary, fg_color=self.passpass_color_theme, border_color=self.passpass_color_theme, command=self.switch_configscreen)
-        # self.config_button.place(relx=0.01, y=3)
 
         self.back_button = ctk.CTkButton(self.top, text='↩️', width=0, font=elements_font, text_color=self.primary, fg_color=self.passpass_color_theme, border_color=self.passpass_color_theme, command=self.switch_mainscreen)
 
@@ -85,18 +82,6 @@ de lembrar suas combinações!
         self.description_help = ctk.CTkLabel(self.helpscreen, text=descricao_ajuda, font=ajuda_font, text_color=self.primary)
         self.description_help.pack()
 
-        # criar frame completo de config
-        self.configscreen = ctk.CTkFrame(self.root, fg_color=self.passpass_color_theme, corner_radius=0)
-        self.description_config = ctk.CTkLabel(self.configscreen, text='Insira em formato hexadecimal', font=credit_font, text_color=self.primary)
-        self.description_config.pack(pady=10)
-        self.change_theme_entry = ctk.CTkEntry(self.configscreen, placeholder_text='Cor tema', placeholder_text_color=self.primary, font=elements_font, fg_color=self.secondary, bg_color=self.passpass_color_theme, width=200, border_color=self.primary, text_color=self.primary)
-        self.change_theme_entry.pack(pady=10)
-        self.change_primary_entry = ctk.CTkEntry(self.configscreen, placeholder_text='Cor primária', placeholder_text_color=self.primary, font=elements_font, fg_color=self.secondary, bg_color=self.passpass_color_theme, width=200, border_color=self.primary, text_color=self.primary)
-        self.change_primary_entry.pack(pady=10)
-        self.change_secondary_entry = ctk.CTkEntry(self.configscreen, placeholder_text='Cor secundária', placeholder_text_color=self.primary, font=elements_font, fg_color=self.secondary, bg_color=self.passpass_color_theme, width=200, border_color=self.primary, text_color=self.primary)
-        self.change_secondary_entry.pack(pady=10)
-        self.change_theme_button = ctk.CTkButton(self.configscreen, text='Aplicar', font=common_text_font, text_color=self.secondary, fg_color=self.primary, corner_radius=50, height=30, width=20, border_color=self.primary, command=self.change_colors)
-        self.change_theme_button.pack(pady=10)
     
     def change_colors(self):
         tema = self.change_theme_entry.get()
@@ -112,11 +97,9 @@ de lembrar suas combinações!
 
     def switch_mainscreen(self):
         self.helpscreen.pack_forget()
-        # self.configscreen.pack_forget()
         self.back_button.place_forget()
         self.mainscreen.pack(fill='both', expand=True)
         self.help_button.place(relx=0.85, y=0)
-        # self.config_button.place(relx=0.01, y=3)
         self.output.configure(state='normal')
         self.output.delete(0, 'end')
         self.output.configure(state='disabled')
@@ -124,16 +107,8 @@ de lembrar suas combinações!
     def switch_helpscreen(self):
         self.mainscreen.pack_forget()
         self.help_button.place_forget()
-        # self.config_button.place_forget()
         self.back_button.place(relx=0.01, y=3)
         self.helpscreen.pack(fill='both', expand=True)
-
-    # def switch_configscreen(self):
-    #     self.mainscreen.pack_forget()
-    #     self.help_button.place_forget()
-    #     self.config_button.place_forget()
-    #     self.back_button.place(relx=0.01, y=3)
-    #     self.configscreen.pack(fill='both', expand=True)
 
     def copy_to_clipboard(self):
         self.root.clipboard_clear()

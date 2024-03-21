@@ -14,7 +14,7 @@ O sistema utilizado no <strong>PassPass</strong> foi cautelosamente pensado para
 Simplesmente copie e cole os resultados gerados pela aplicação 😄
 <br>
 <h2>Nada de cobranças 💸💸</h2>
-<strong>PassPass</strong> é gratuito. Temos como único objetivo melhorar a segurança dos usuários da internet.
+<strong>PassPass</strong> é gratuito. Temos como objetivo melhorar a segurança dos usuários da internet.
 <br><br>
 
 >Caso tenha interesse de contribuir com o projeto ou apoiar o criador, entre em contato pelo [Linkedin](https://www.linkedin.com/in/zac-milioli/) ou envie doações para meu pix com uma mensagem motivacional 😎 (Banco Inter, chave: zacmilioli@gmail.com)

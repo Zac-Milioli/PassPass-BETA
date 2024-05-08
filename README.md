@@ -1,4 +1,9 @@
 # PassPass BETA (v0.9) 🔐
+
+<center><a href="https://github.com/Zac-Milioli/PassPass-BETA/blob/master/PassPass.zip" target="_blank" rel="noreferrer"> <img src="https://archive.org/download/downloads-icon-15/downloads-icon-15.png" alt="download" width="130" height="130"/> </a>
+<p><strong>Clique aqui para ir diretamente ao arquivo para download</strong></p>
+</center>
+
 <h2>Faça suas contas muito mais seguras de forma rápida e simples!📱💻</h2>
 Com <strong>PassPass</strong> você não precisa mais se preocupar com o risco de descobrirem suas senhas. Usando um complexo sistema e processos para lidar com as informações inseridas, garantem que a suas senhas sejam todas geradas com máxima segurança, total anonimidade e em um piscar de olhos! 😉
 <br>

@@ -1,4 +1,4 @@
-# PassPass BETA (v0.9) 🔐
+# PassPass BETA (v0.9.1) 🔐
 
 <p align='center'><a href="https://github.com/Zac-Milioli/PassPass-BETA/blob/master/PassPass.zip" target="_blank" rel="noreferrer"> <img src="https://archive.org/download/downloads-icon-15/downloads-icon-15.png" alt="download" width="130" height="130"/> </a></p>
 <p align='center'><strong>Clique aqui para ir diretamente ao arquivo para download</strong></p>
